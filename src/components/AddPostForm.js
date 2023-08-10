@@ -40,6 +40,7 @@ export default function AddPostForm(){
     return(
         <div>
             {/* onSubmit */}
+            <br/>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="title">Title: </label>
                 <input value={formData.title} onSubmit={handleSubmit} onChange={handleChange} name='title' id='title' type="text"/>

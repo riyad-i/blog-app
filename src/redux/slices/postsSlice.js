@@ -10,7 +10,7 @@ export const postsSlice = createSlice({
     reducers:{
         addPost: (state, action) => {
             const {payload} = action
-            console.log(payload);
+            state.push(payload)
         }
     }
 })
