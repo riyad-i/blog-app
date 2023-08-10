@@ -1,9 +1,16 @@
+import {Link} from 'react-router-dom'
+
+
 export default function PostItem(props){
-    const {title, content} = props.post
+
+
+    const {title, content, id} = props.post
     return(
         <article>
-            <h2>{title}</h2>
-            <p>{content}</p>
+            <Link to={`/post/${id}`}>
+                <h2>{title}</h2>
+                <p>{content}</p>
+            </Link>
         </article>
     )
 }
