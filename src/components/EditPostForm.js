@@ -1,4 +1,4 @@
-import {useParams} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import { useState } from 'react'
 import { editPost } from '../redux/slices/postsSlice'
@@ -7,6 +7,12 @@ import { editPost } from '../redux/slices/postsSlice'
 export default function EditPostForm() {
 
     const {id} = useParams()
+
+    // navigate user back to single post page 
+    const navigate = useNavigate()
+
+
+    //gets data from redux global state
     const postToUpdate = useSelector(state => state.posts.find(post => post.id === id))
 
     console.log(postToUpdate);
@@ -25,6 +31,7 @@ export default function EditPostForm() {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(editPost(formData))
+        navigate(`/post/${id}`)
 
        
     }
