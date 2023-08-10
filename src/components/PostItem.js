@@ -2,7 +2,7 @@ export default function PostItem(props){
     const {title, content} = props.post
     return(
         <article>
-            <h3>{title}</h3>
+            <h2>{title}</h2>
             <p>{content}</p>
         </article>
     )
