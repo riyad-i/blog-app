@@ -1,7 +1,7 @@
 import {useParams} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import { useState } from 'react'
-
+import { editPost } from '../redux/slices/postsSlice'
 
 
 export default function EditPostForm() {
@@ -24,6 +24,7 @@ export default function EditPostForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        dispatch(editPost(formData))
 
        
     }
@@ -43,7 +44,7 @@ export default function EditPostForm() {
                 <textarea value={formData.content} onSubmit={handleSubmit} onChange={handleChange} name="content" id="content"/>
                 {/* onChange={(e) => setFormData({content: e.value})} */}
 
-                <button disabled={!(formData.title && formData.content)}> Add Post</button>
+                <button disabled={!(formData.title && formData.content)}> Edit Post</button>
             </form>
         </div>
     )
