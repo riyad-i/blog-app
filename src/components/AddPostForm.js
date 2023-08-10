@@ -53,7 +53,7 @@ export default function AddPostForm(){
                 <textarea value={formData.content} onSubmit={handleSubmit} onChange={handleChange} name="content" id="content"/>
                 {/* onChange={(e) => setFormData({content: e.value})} */}
 
-                <button> Add Post</button>
+                <button disabled={!(formData.title && formData.content)}> Add Post</button>
             </form>
         </div>
     )
