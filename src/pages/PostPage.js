@@ -1,6 +1,7 @@
 import PostItem from "../components/PostItem"
 import {useParams} from 'react-router-dom'
 import {useSelector} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 export default function PostPage() {
     const {id} = useParams()
@@ -10,7 +11,7 @@ export default function PostPage() {
     const posts = useSelector(state => state.posts)
     const post = posts.find(post => post.id === id)
 
-    console.log(post);
+    console.log(id);
 
     return (
         <>
@@ -21,6 +22,7 @@ export default function PostPage() {
             <p>{post.content}</p>
         </div>
 
+        <Link to={`/post/edit/${id}`} >Edit</Link>
         </>
     )
 }

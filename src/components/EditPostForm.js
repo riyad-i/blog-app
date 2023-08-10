@@ -1,15 +1,17 @@
-import { useState } from "react"
-import { addPost } from "../redux/slices/postsSlice"
-import { useDispatch } from "react-redux"
-import { nanoid } from "@reduxjs/toolkit"
+import {useParams} from 'react-router-dom'
+import {useSelector, useDispatch} from 'react-redux'
+import { useState } from 'react'
 
 
 
-export default function AddPostForm(){
-    const [formData, setFormData] = useState({
-        title: '',
-        content: ''
-    })
+export default function EditPostForm() {
+
+    const {id} = useParams()
+    const postToUpdate = useSelector(state => state.posts.find(post => post.id === id))
+
+    console.log(postToUpdate);
+
+    const [formData, setFormData] = useState(postToUpdate)
 
     const dispatch = useDispatch()
 
@@ -23,18 +25,7 @@ export default function AddPostForm(){
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        const newPost = {...formData, id: nanoid()}
-
-        //dispatch action
-        dispatch(addPost(newPost))
-
-        //reset form state
-
-        setFormData({
-            title: '',
-            content: ''
-        })
-
+       
     }
 
     return(
