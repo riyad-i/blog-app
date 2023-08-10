@@ -9,7 +9,7 @@ export default function PostsList(){
             <h1>Posts List</h1>
 
             <section>
-                {posts.length ? posts.map(post => <h3 key={post.id}>{<PostItem post={post}/>}</h3>): <h2>Loading...</h2>}
+                {posts.length ? posts.map(post => <h3 key={post.id}>{<PostItem post={post}/>}</h3>): <h2>No posts to show...</h2>}
 
             </section>
         </div>
