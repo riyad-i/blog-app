@@ -23,10 +23,12 @@ export default function AddPostForm(){
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        const newPost = {...formData, id: nanoid()}
+        // const newPost = {...formData, id: nanoid()}
 
         //dispatch action
-        dispatch(addPost(newPost))
+        // dispatch(addPost(newPost))
+
+        dispatch(addPost(formData.title, formData.content))
 
         //reset form state
 
