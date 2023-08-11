@@ -4,14 +4,16 @@ import {useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
 
 export default function PostPage() {
-    const {id} = useParams()
+    let {id} = useParams()
+    id = Number(id)
+    
 
     // const post = useSelector(state => state.posts.find(post => post.id === id))
 
     const posts = useSelector(state => state.posts)
     const post = posts.find(post => post.id === id)
 
-    console.log(id);
+    console.log(posts);
 
     return (
         <>

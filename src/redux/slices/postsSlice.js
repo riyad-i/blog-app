@@ -1,4 +1,4 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { createSlice, nanoid, createAsyncThunk } from "@reduxjs/toolkit";
 
 
 export const postsSlice = createSlice({
@@ -33,7 +33,22 @@ export const postsSlice = createSlice({
             const indexOfPost = state.findIndex(post => post.id === payload.id)
             state[indexOfPost] = payload
         }
+    },
+    extraReducers(builder) {
+        builder.addCase(fetchPosts.fulfilled, (state, action) => {
+            const {payload} = action
+            return state = state.concat(payload)
+            
+        })
     }
+})
+
+
+export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const data = await res.json()
+    console.log(data);
+    return data
 })
 
 

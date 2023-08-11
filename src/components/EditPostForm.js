@@ -13,7 +13,7 @@ export default function EditPostForm() {
 
 
     //gets data from redux global state
-    const postToUpdate = useSelector(state => state.posts.find(post => post.id === id))
+    const postToUpdate = useSelector(state => state.posts.find(post => post.id == id))
 
     console.log(postToUpdate);
 
